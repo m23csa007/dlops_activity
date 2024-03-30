@@ -38,9 +38,24 @@ def analyze_data(data):
         plt.show()
 
 def main():
-    file_path = input("Enter the path to the CSV file: ")
+    file_path = "DryBeanDataset\Dry_Bean_Dataset.xlsx" # DryBeanDataset\Dry_Bean_Dataset.xlsx
     data = load_data(file_path)
     analyze_data(data)
+
+    # Get roll number
+    roll_number = int(input("Enter your roll number: "))
+
+    if roll_number % 2 == 0:
+        # List out missing values
+        missing_values = data.isnull().sum()
+        print("Missing values:")
+        print(missing_values)
+    else:
+        # Encode categorical values
+        categorical_cols = data.select_dtypes(include=['object']).columns
+        for col in categorical_cols:
+            data[col] = data[col].astype('category').cat.codes
+        print("Categorical values encoded.")
 
 if __name__ == "__main__":
     main()

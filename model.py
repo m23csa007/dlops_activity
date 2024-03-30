@@ -127,3 +127,5 @@ with torch.no_grad():
 
 top5_accuracy = top5_correct / total
 print(f"\nFinal Top-5 Test Accuracy: {top5_accuracy:.4f}")
+
+print("some changes has been made for the dlops assignment-2_version1")

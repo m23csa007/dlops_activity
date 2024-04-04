@@ -54,15 +54,15 @@ criterion = nn.CrossEntropyLoss()
 # Training loop
 def train_model(optimizer_name):
     if optimizer_name == 'Adam':
-        optimizer = optim.Adam(model.parameters(), lr=0.001)
+        optimizer = optim.Adam(model.parameters(), lr=0.00001)
     elif optimizer_name == 'Adagrad':
         optimizer = optim.Adagrad(model.parameters(), lr=0.01)
     elif optimizer_name == 'RMSprop':
-        optimizer = optim.RMSprop(model.parameters(), lr=0.001)
+        optimizer = optim.RMSprop(model.parameters(), lr=0.0001)
     else:
         raise ValueError("Invalid optimizer name")
 
-    epochs = 10
+    epochs = 2
     train_losses = []
     train_accuracies = []
 
